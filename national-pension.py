@@ -1,4 +1,22 @@
 import os
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+
+def setup_korean_font():
+    font_path = "/tmp/NanumGothic.ttf"
+    if not os.path.exists(font_path):
+        import wget
+        url = "https://github.com/naver/nanumfont/blob/master/NanumGothic/NanumGothic.ttf?raw=true"
+        wget.download(url, font_path)
+
+    fm.fontManager.addfont(font_path)
+    plt.rcParams['font.family'] = 'NanumGothic'
+
+setup_korean_font()
+
+
+
+import os
 import warnings
 import numpy as np
 import pandas as pd
