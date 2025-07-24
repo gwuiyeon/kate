@@ -13,26 +13,6 @@ import streamlit as st
 plt.rcParams['font.family'] = "Malgen Gothic"
 plt.rcParams['axes.unicode_minus'] = False
 
-import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
-import os
-
-
-# 한글 폰트 자동 설치 (나눔스퀘어)
-def setup_korean_font():
-    font_path = "/tmp/NanumSquareRound.ttf"
-    if not os.path.exists(font_path):
-        import wget
-        url = "https://github.com/naver/nanumfont/blob/master/NanumSquareRound/NanumSquareRoundR.ttf?raw=true"
-        wget.download(url, font_path)
-
-    fm.fontManager.addfont(font_path)
-    plt.rc('font', family='NanumSquareRound')
-    return font_path
-
-# 한글 폰트 경로 설정
-font_path = setup_korean_font()
-
 
 class PensionData():
     def __init__(self, filepath):
